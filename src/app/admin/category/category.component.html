@@ -1,0 +1,44 @@
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <h1>
+      Category
+      <small>Control panel</small>
+    </h1>
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+      <li class="active">Category</li>
+    </ol>
+  </section>
+  <section class="content">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="box box-info">
+          <div class="box-header with-border">
+            <h3 class="box-title">Category</h3>
+          </div>
+          <form class="form-horizontal" name="productForm" #categoryForm="ngForm" (ngSubmit)="cancelCategory()">
+            <div class="box-body">
+
+              <div class="form-group">
+                <label for="txtCategory" class="col-sm-2 control-label">Category</label>
+
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" name="category" [(ngModel)]="category.category" id="txtCategory"
+                         placeholder="Category" required #category="ngModel">
+                  <small *ngIf="(category.invalid && (category.dirty || category.touched))" class="text-danger">
+                    Please enter valid category.
+                  </small>
+                </div>
+              </div>
+            </div>
+            <div class="box-footer">
+              <button type="submit" [disabled]="!productForm.valid" (click)="addCategory(category)" class="btn btn-info pull-right">Save</button>
+              <button type="button" style="margin-right: 15px;" (click)="cancelCategory()" class="btn btn-default pull-right">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
